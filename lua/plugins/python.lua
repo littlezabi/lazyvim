@@ -18,13 +18,11 @@ return {
               for _, venv_name in ipairs({ "venv", ".venv", "env" }) do
                 local venv_dir = dir .. "/" .. venv_name
                 local python_bin = venv_dir .. "/bin/python"
-                if vim.fn.executable(python_bin) == 1 then
-                  -- Set VIRTUAL_ENV environment variable for Pyright server process
+                if vim.uv.fs_stat(python_bin) then
                   config.cmd_env = config.cmd_env or {}
                   config.cmd_env.VIRTUAL_ENV = venv_dir
                   config.cmd_env.PATH = venv_dir .. "/bin:" .. (vim.env.PATH or "")
 
-                  -- Set pythonPath and extraPaths in Pyright settings
                   config.settings = config.settings or {}
                   config.settings.python = config.settings.python or {}
                   config.settings.python.pythonPath = python_bin
@@ -44,12 +42,12 @@ return {
               analysis = {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
-                diagnosticMode = "workspace", -- "workspace" scans all files; "openFilesOnly" scans open files
-                typeCheckingMode = "standard", -- Options: "off", "basic", "standard", "strict"
+                diagnosticMode = "openFilesOnly", -- Optimized for speed and low RAM on large Python projects
+                typeCheckingMode = "standard",
                 diagnosticSeverityOverrides = {
                   reportMissingImports = "error",
                   reportUndefinedVariable = "error",
-                  reportAttributeAccessIssue = "none", -- Silences dynamic Django ORM attribute warnings (e.g. group.filters.all())
+                  reportAttributeAccessIssue = "none",
                   reportMissingTypeStubs = "none",
                 },
               },
