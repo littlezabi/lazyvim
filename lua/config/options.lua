@@ -2,6 +2,13 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- Disable global autoformat (only modified lines will format via conform.nvim)
+vim.g.autoformat = false
+
+-- Enable spell checking
+vim.opt.spell = true
+vim.opt.spelllang = { "en" }
+
 -- Disable relative line numbers, enable absolute line numbers
 vim.opt.relativenumber = false
 vim.opt.number = true
