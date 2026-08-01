@@ -46,10 +46,13 @@ nvim
 
 ---
 
-## 🔍 Diagnostic & Error Shortcuts
+## 🔍 Key Navigation & Buffer Shortcuts
 
 | Shortcut | Action | Description |
 |---|---|---|
+| **`<leader>q`** | **Close Buffer / File** | Close current file (`b.py`) without quitting Neovim. |
+| **`<leader>bd`** | **Delete Buffer** | Close current buffer (LazyVim default). |
+| **`H` / `L`** | **Prev / Next Buffer** | Switch between open buffer tabs across top bar (`a.py` / `b.py`). |
 | **`<leader>cd`** (or `gl`) | **Floating Diagnostic** | Open wrapped floating popup showing full, unwrapped error message under cursor. |
 | **`<leader>xx`** | **Trouble Panel (Buffer)** | Open bottom diagnostic panel for current buffer. |
 | **`<leader>xX`** | **Trouble Panel (Workspace)** | Open bottom diagnostic panel for full project workspace. |
