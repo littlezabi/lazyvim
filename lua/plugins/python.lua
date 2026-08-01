@@ -1,10 +1,44 @@
 return {
-  -- Configure Pyright LSP to automatically detect .venv in current & parent directories
+  -- Configure Pyright LSP to automatically detect virtual environments in current & parent directories
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
         pyright = {
+          before_init = function(_, config)
+            local root = config.root_dir or vim.fn.getcwd()
+            local search_dirs = {
+              root,
+              vim.fn.fnamemodify(root, ":h"),
+              vim.fn.fnamemodify(root, ":h:h"),
+              vim.fn.fnamemodify(root, ":h:h:h"),
+            }
+
+            for _, dir in ipairs(search_dirs) do
+              for _, venv_name in ipairs({ "venv", ".venv", "env" }) do
+                local venv_dir = dir .. "/" .. venv_name
+                local python_bin = venv_dir .. "/bin/python"
+                if vim.fn.executable(python_bin) == 1 then
+                  -- Set VIRTUAL_ENV environment variable for Pyright server process
+                  config.cmd_env = config.cmd_env or {}
+                  config.cmd_env.VIRTUAL_ENV = venv_dir
+                  config.cmd_env.PATH = venv_dir .. "/bin:" .. (vim.env.PATH or "")
+
+                  -- Set pythonPath and extraPaths in Pyright settings
+                  config.settings = config.settings or {}
+                  config.settings.python = config.settings.python or {}
+                  config.settings.python.pythonPath = python_bin
+
+                  local site_packages = vim.fn.glob(venv_dir .. "/lib/python*/site-packages", true, true)
+                  if #site_packages > 0 then
+                    config.settings.python.analysis = config.settings.python.analysis or {}
+                    config.settings.python.analysis.extraPaths = site_packages
+                  end
+                  return
+                end
+              end
+            end
+          end,
           settings = {
             python = {
               analysis = {
@@ -14,34 +48,6 @@ return {
               },
             },
           },
-          on_new_config = function(new_config, new_root_dir)
-            local root = new_root_dir or vim.fn.getcwd()
-            local search_dirs = {
-              root,
-              vim.fn.fnamemodify(root, ":h"),
-              vim.fn.fnamemodify(root, ":h:h"),
-            }
-            
-            for _, dir in ipairs(search_dirs) do
-              for _, venv_name in ipairs({ ".venv", "venv", "env" }) do
-                local venv_path = dir .. "/" .. venv_name
-                local python_bin = venv_path .. "/bin/python"
-                if vim.fn.executable(python_bin) == 1 then
-                  new_config.settings = new_config.settings or {}
-                  new_config.settings.python = new_config.settings.python or {}
-                  new_config.settings.python.pythonPath = python_bin
-
-                  -- Add site-packages to extraPaths as fallback
-                  local site_packages = vim.fn.glob(venv_path .. "/lib/python*/site-packages", true, true)
-                  if #site_packages > 0 then
-                    new_config.settings.python.analysis = new_config.settings.python.analysis or {}
-                    new_config.settings.python.analysis.extraPaths = site_packages
-                  end
-                  return
-                end
-              end
-            end
-          end,
         },
       },
     },
