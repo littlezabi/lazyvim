@@ -1,6 +1,6 @@
 # ⚡ Custom LazyVim Configuration
 
-A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Catppuccin Mocha**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, and diagnostic shortcuts.
+A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Catppuccin Mocha**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, **LazyGit integration**, and diagnostic shortcuts.
 
 ---
 
@@ -8,12 +8,13 @@ A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) set
 
 ### 1. Install System Prerequisites (Ubuntu / Pop!_OS / Debian)
 
-Before cloning, install required system dependencies (including clipboard tools, search utilities, and compiler tools for Treesitter/LSP):
+Before cloning, install required system dependencies (including clipboard tools, search utilities, compiler tools, and LazyGit):
 
 ```bash
 sudo apt update && sudo apt install -y \
   neovim \
   git \
+  lazygit \
   curl \
   build-essential \
   wl-clipboard \
@@ -50,6 +51,7 @@ nvim
 
 | Shortcut | Action | Description |
 |---|---|---|
+| **`<leader>gg`** | **LazyGit** | Open LazyGit UI inside Neovim. |
 | **`<leader>q`** | **Close Buffer / File** | Close current file (`b.py`) without quitting Neovim. |
 | **`<leader>bd`** | **Delete Buffer** | Close current buffer (LazyVim default). |
 | **`H` / `L`** | **Prev / Next Buffer** | Switch between open buffer tabs across top bar (`a.py` / `b.py`). |
