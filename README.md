@@ -1,6 +1,6 @@
 # ⚡ Custom LazyVim Configuration
 
-A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Catppuccin Mocha**, **background transparency**, **system clipboard integration**, and language support.
+A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Catppuccin Mocha**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, and diagnostic shortcuts.
 
 ---
 
@@ -46,7 +46,24 @@ nvim
 
 ---
 
+## 🔍 Diagnostic & Error Shortcuts
+
+| Shortcut | Action | Description |
+|---|---|---|
+| **`<leader>cd`** (or `gl`) | **Floating Diagnostic** | Open wrapped floating popup showing full, unwrapped error message under cursor. |
+| **`<leader>xx`** | **Trouble Panel (Buffer)** | Open bottom diagnostic panel for current buffer. |
+| **`<leader>xX`** | **Trouble Panel (Workspace)** | Open bottom diagnostic panel for full project workspace. |
+| **`[d` / `]d`** | **Prev / Next Error** | Jump directly between diagnostic errors and warnings. |
+| **`<leader>cv`** | **Select VirtualEnv** | Interactively pick Python virtual environments. |
+
+---
+
 ## ✨ Features & Customizations
+
+### 🐍 Python & Pyright Config
+* **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
+* **Type Checking**: Set to `standard` mode in `lua/plugins/python.lua`.
+* **Django ORM Support**: Overrides `reportAttributeAccessIssue` to prevent false-positive warnings on dynamic Django ORM attributes (e.g. `group.filters.all()`).
 
 ### 🎨 Theme & Background Transparency
 * **Default Theme**: [Catppuccin Mocha](https://github.com/catppuccin/nvim) configured in `lua/plugins/colorscheme.lua`.
@@ -60,10 +77,6 @@ nvim
 ### 📐 Line Height & Typography
 * Line spacing configured via `vim.opt.linespace = 6` in `lua/config/options.lua`.
 
-### 📦 Configured Extras & Languages
-* **Python**: `lazyvim.plugins.extras.lang.python`
-* **AI Support**: `lazyvim.plugins.extras.ai.copilot-chat`
-
 ---
 
 ## 📁 Repository Structure
@@ -73,6 +86,7 @@ nvim
 ├── init.lua
 ├── lazy-lock.json
 ├── lazyvim.json
+├── README.md
 └── lua/
     ├── config/
     │   ├── autocmds.lua
@@ -80,5 +94,6 @@ nvim
     │   ├── lazy.lua
     │   └── options.lua
     └── plugins/
-        └── colorscheme.lua
+        ├── colorscheme.lua
+        └── python.lua
 ```
