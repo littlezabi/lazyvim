@@ -47,10 +47,14 @@ nvim
 
 ---
 
-## 🔍 Key Navigation & Buffer Shortcuts
+## 🔍 Key Navigation & Terminal Shortcuts
 
 | Shortcut | Action | Description |
 |---|---|---|
+| **`<c-/>`** (or **`Ctrl + /`**) | **Toggle Terminal** | Toggle floating terminal popup inside Neovim. |
+| **`<leader>ft`** | **Floating Terminal** | Open floating terminal window. |
+| **`<leader>fT`** | **Split Terminal** | Open terminal in a bottom split window. |
+| **`<Esc><Esc>`** | **Terminal Normal Mode** | Exit terminal insert mode to copy text or navigate buffers. |
 | **`<leader>gg`** | **LazyGit** | Open LazyGit UI inside Neovim. |
 | **`<leader>q`** | **Close Buffer / File** | Close current file (`b.py`) without quitting Neovim. |
 | **`<leader>bd`** | **Delete Buffer** | Close current buffer (LazyVim default). |
