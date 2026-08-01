@@ -1,5 +1,5 @@
 return {
-  -- Configure Pyright LSP to automatically detect virtual environments in current & parent directories
+  -- Configure Pyright LSP for syntax checking, type checking & parent venvs
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -44,7 +44,12 @@ return {
               analysis = {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
-                diagnosticMode = "workspace",
+                diagnosticMode = "workspace", -- "workspace" scans all files; "openFilesOnly" scans open files
+                typeCheckingMode = "basic",   -- Options: "off", "basic", "standard", "strict"
+                diagnosticSeverityOverrides = {
+                  reportMissingImports = "error",
+                  reportUndefinedVariable = "error",
+                },
               },
             },
           },

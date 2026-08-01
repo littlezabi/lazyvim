@@ -11,3 +11,12 @@ vim.g.neovide_linespace = 6
 
 -- Suppress E325 ATTENTION swapfile prompts (prevents picker crashes on leftover swap files)
 vim.opt.shortmess:append("A")
+
+-- Diagnostic float settings (wrap long error/warning messages)
+vim.diagnostic.config({
+  float = {
+    wrap = true,
+    border = "rounded",
+    max_width = 100,
+  },
+})
