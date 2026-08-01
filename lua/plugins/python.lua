@@ -45,10 +45,12 @@ return {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
                 diagnosticMode = "workspace", -- "workspace" scans all files; "openFilesOnly" scans open files
-                typeCheckingMode = "basic",   -- Options: "off", "basic", "standard", "strict"
+                typeCheckingMode = "standard", -- Options: "off", "basic", "standard", "strict"
                 diagnosticSeverityOverrides = {
                   reportMissingImports = "error",
                   reportUndefinedVariable = "error",
+                  reportAttributeAccessIssue = "none", -- Silences dynamic Django ORM attribute warnings (e.g. group.filters.all())
+                  reportMissingTypeStubs = "none",
                 },
               },
             },
