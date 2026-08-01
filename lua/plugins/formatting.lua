@@ -10,10 +10,6 @@ return {
     "nvim-mini/mini.indentscope",
     enabled = false,
   },
-  {
-    "echasnovski/mini.indentscope",
-    enabled = false,
-  },
 
   -- Configure Conform.nvim for manual formatting only (<leader>cf)
   {
