@@ -1,6 +1,6 @@
 # ⚡ Custom LazyVim Configuration
 
-A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Catppuccin Mocha**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, **LazyGit integration**, and diagnostic shortcuts.
+A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Catppuccin Mocha**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, **Rust Toolchain (`rust-analyzer`)**, **LazyGit integration**, and diagnostic shortcuts.
 
 ---
 
@@ -8,9 +8,10 @@ A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) set
 
 ### 1. Install System Prerequisites (Ubuntu / Pop!_OS / Debian)
 
-Before cloning, install required system dependencies (including clipboard tools, search utilities, compiler tools, and LazyGit):
+Before cloning, install required system dependencies (including clipboard tools, search utilities, compiler tools, LazyGit, and Rust components):
 
 ```bash
+# Install system packages
 sudo apt update && sudo apt install -y \
   neovim \
   git \
@@ -25,6 +26,9 @@ sudo apt update && sudo apt install -y \
   python3-pip \
   nodejs \
   npm
+
+# Install rust-analyzer component for Rust LSP
+rustup component add rust-analyzer
 ```
 
 ### 2. Clone Configuration
@@ -70,15 +74,23 @@ nvim
 
 ## ✨ Features & Customizations
 
-### 🛠️ Formatting & Editing
-* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
-* **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
-* **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
+### 🦀 Rust Toolchain & rust-analyzer
+* **LSP**: Integrated with `rust-analyzer` via `lazyvim.plugins.extras.lang.rust` and `lang.toml`.
+* **Troubleshooting (`Client rust-analyzer quit with exit code 1`)**:
+  If `rust-analyzer` crashes with exit code 1 or says `Unknown binary 'rust-analyzer'`, run:
+  ```bash
+  rustup component add rust-analyzer
+  ```
 
 ### 🐍 Python & Pyright Config
 * **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
 * **Type Checking**: Set to `standard` mode in `lua/plugins/python.lua`.
 * **Django ORM Support**: Overrides `reportAttributeAccessIssue` to prevent false-positive warnings on dynamic Django ORM attributes (e.g. `group.filters.all()`).
+
+### 🛠️ Formatting & Editing
+* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
+* **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
+* **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
 
 ### 🎨 Theme & Background Transparency
 * **Default Theme**: [Catppuccin Mocha](https://github.com/catppuccin/nvim) configured in `lua/plugins/colorscheme.lua`.
