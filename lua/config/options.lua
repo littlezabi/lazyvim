@@ -8,3 +8,6 @@ vim.opt.clipboard = "unnamedplus"
 -- Line spacing (for GUI / supported terminals)
 vim.opt.linespace = 6
 vim.g.neovide_linespace = 6
+
+-- Suppress E325 ATTENTION swapfile prompts (prevents picker crashes on leftover swap files)
+vim.opt.shortmess:append("A")
