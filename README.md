@@ -69,6 +69,11 @@ nvim
 
 ## ✨ Features & Customizations
 
+### 🛠️ Formatting & Editing
+* **Modified Lines Only Formatting**: Global autoformat on save (`vim.g.autoformat`) is **disabled**. Formatting on save via `conform.nvim` applies **only to modified git hunks/lines** instead of the whole file.
+* **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
+* **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
+
 ### 🐍 Python & Pyright Config
 * **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
 * **Type Checking**: Set to `standard` mode in `lua/plugins/python.lua`.
@@ -85,6 +90,7 @@ nvim
 
 ### 📐 Line Height & Typography
 * Line spacing configured via `vim.opt.linespace = 6` in `lua/config/options.lua`.
+* Absolute line numbers permanently enabled (`vim.opt.relativenumber = false`).
 
 ---
 
@@ -104,5 +110,6 @@ nvim
     │   └── options.lua
     └── plugins/
         ├── colorscheme.lua
+        ├── formatting.lua
         └── python.lua
 ```
