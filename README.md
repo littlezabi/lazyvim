@@ -51,6 +51,7 @@ nvim
 
 | Shortcut | Action | Description |
 |---|---|---|
+| **`<leader>cf`** | **Format File / Selection** | Manually format current file or visual selection using `conform.nvim` (`ruff_format`, `stylua`, etc.). |
 | **`<c-/>`** (or **`Ctrl + /`**) | **Toggle Terminal** | Toggle floating terminal popup inside Neovim. |
 | **`<leader>ft`** | **Floating Terminal** | Open floating terminal window. |
 | **`<leader>fT`** | **Split Terminal** | Open terminal in a bottom split window. |
@@ -70,7 +71,7 @@ nvim
 ## ✨ Features & Customizations
 
 ### 🛠️ Formatting & Editing
-* **Modified Lines Only Formatting**: Global autoformat on save (`vim.g.autoformat`) is **disabled**. Formatting on save via `conform.nvim` applies **only to modified git hunks/lines** instead of the whole file.
+* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
 * **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
 
