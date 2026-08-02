@@ -59,6 +59,12 @@ return {
           NeoTreeNormalNC = { bg = "NONE", ctermbg = "NONE" },
           SnacksNormal = { bg = "NONE", ctermbg = "NONE" },
           SnacksNormalNC = { bg = "NONE", ctermbg = "NONE" },
+
+          -- Dimmed, subtle diagnostic underlines (soft, non-distracting colors)
+          DiagnosticUnderlineError = { sp = "#9e4e54", underline = true, undercurl = false },
+          DiagnosticUnderlineWarn = { sp = "#8a7548", underline = true, undercurl = false },
+          DiagnosticUnderlineInfo = { sp = "#4c6b8a", underline = true, undercurl = false },
+          DiagnosticUnderlineHint = { sp = "#585b70", underline = true, undercurl = false },
         }
       end,
     },
