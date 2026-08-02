@@ -60,11 +60,18 @@ return {
           SnacksNormal = { bg = "NONE", ctermbg = "NONE" },
           SnacksNormalNC = { bg = "NONE", ctermbg = "NONE" },
 
-          -- Ultra-dimmed, low-contrast dark underlines tailored for dark themes
+          -- Clear bright Spell checking underlines completely
+          SpellBad = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
+          SpellCap = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
+          SpellLocal = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
+          SpellRare = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
+
+          -- Ultra-dimmed, low-contrast dark underlines for LSP errors & warnings
           DiagnosticUnderlineError = { fg = "#582a2d", sp = "#582a2d", underline = true, undercurl = false },
           DiagnosticUnderlineWarn = { fg = "#4a3e23", sp = "#4a3e23", underline = true, undercurl = false },
           DiagnosticUnderlineInfo = { fg = "#28394a", sp = "#28394a", underline = true, undercurl = false },
           DiagnosticUnderlineHint = { fg = "#313244", sp = "#313244", underline = true, undercurl = false },
+          DiagnosticUnnecessary = { fg = "#45475a", underline = false, undercurl = false },
         }
       end,
     },
