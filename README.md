@@ -56,7 +56,7 @@ nvim
 | Shortcut | Action | Description |
 |---|---|---|
 | **`<leader>cd`** (or `gl`) | **Floating Diagnostic** | Open wrapped floating popup showing full, unwrapped error message under cursor (VS Code / Zed style). |
-| **`<leader>cf`** | **Format File / Selection** | Manually format current file or visual selection using `conform.nvim` (`ruff_format`, `stylua`, etc.). |
+| **`<leader>cf`** | **Format File / Selection** | Manually format current file or visual selection using `conform.nvim` (`rustfmt`, `ruff_format`, `stylua`, etc.). |
 | **`<c-/>`** (or **`Ctrl + /`**) | **Toggle Terminal** | Toggle floating terminal popup inside Neovim. |
 | **`<leader>ft`** | **Floating Terminal** | Open floating terminal window. |
 | **`<leader>fT`** | **Split Terminal** | Open terminal in a bottom split window. |
@@ -76,12 +76,12 @@ nvim
 
 ### 🛠️ Formatting & Editing
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
-* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
+* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`rustfmt` for Rust, `ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
 * **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
 
 ### 🦀 Rust Toolchain & rust-analyzer
-* **LSP**: Integrated with `rust-analyzer` via `lazyvim.plugins.extras.lang.rust` and `lang.toml`.
+* **LSP & Formatting**: Integrated with `rust-analyzer` and `rustfmt` via `lazyvim.plugins.extras.lang.rust` and `lang.toml`.
 * **Troubleshooting (`Client rust-analyzer quit with exit code 1`)**:
   If `rust-analyzer` crashes with exit code 1 or says `Unknown binary 'rust-analyzer'`, run:
   ```bash
