@@ -60,11 +60,11 @@ return {
           SnacksNormal = { bg = "NONE", ctermbg = "NONE" },
           SnacksNormalNC = { bg = "NONE", ctermbg = "NONE" },
 
-          -- Dimmed, subtle diagnostic underlines (soft, non-distracting colors)
-          DiagnosticUnderlineError = { sp = "#9e4e54", underline = true, undercurl = false },
-          DiagnosticUnderlineWarn = { sp = "#8a7548", underline = true, undercurl = false },
-          DiagnosticUnderlineInfo = { sp = "#4c6b8a", underline = true, undercurl = false },
-          DiagnosticUnderlineHint = { sp = "#585b70", underline = true, undercurl = false },
+          -- Ultra-dimmed, low-contrast dark underlines tailored for dark themes
+          DiagnosticUnderlineError = { fg = "#582a2d", sp = "#582a2d", underline = true, undercurl = false },
+          DiagnosticUnderlineWarn = { fg = "#4a3e23", sp = "#4a3e23", underline = true, undercurl = false },
+          DiagnosticUnderlineInfo = { fg = "#28394a", sp = "#28394a", underline = true, undercurl = false },
+          DiagnosticUnderlineHint = { fg = "#313244", sp = "#313244", underline = true, undercurl = false },
         }
       end,
     },
