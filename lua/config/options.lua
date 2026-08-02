@@ -23,11 +23,19 @@ vim.g.neovide_linespace = 6
 -- Suppress E325 ATTENTION swapfile prompts (prevents picker crashes on leftover swap files)
 vim.opt.shortmess:append("A")
 
--- Diagnostic float settings (wrap long error/warning messages)
+-- Diagnostic settings (VS Code / Zed style: underline only, no long inline text)
 vim.diagnostic.config({
+  virtual_text = false, -- Disables inline long trailing error text
+  underline = true,    -- Keeps error/warning underlines on code
+  signs = true,        -- Keeps gutter signs
   float = {
-    wrap = true,
+    focusable = true,
+    style = "minimal",
     border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+    wrap = true,
     max_width = 100,
   },
 })

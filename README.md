@@ -55,6 +55,7 @@ nvim
 
 | Shortcut | Action | Description |
 |---|---|---|
+| **`<leader>cd`** (or `gl`) | **Floating Diagnostic** | Open wrapped floating popup showing full, unwrapped error message under cursor (VS Code / Zed style). |
 | **`<leader>cf`** | **Format File / Selection** | Manually format current file or visual selection using `conform.nvim` (`ruff_format`, `stylua`, etc.). |
 | **`<c-/>`** (or **`Ctrl + /`**) | **Toggle Terminal** | Toggle floating terminal popup inside Neovim. |
 | **`<leader>ft`** | **Floating Terminal** | Open floating terminal window. |
@@ -64,7 +65,6 @@ nvim
 | **`<leader>q`** | **Close Buffer / File** | Close current file (`b.py`) without quitting Neovim. |
 | **`<leader>bd`** | **Delete Buffer** | Close current buffer (LazyVim default). |
 | **`H` / `L`** | **Prev / Next Buffer** | Switch between open buffer tabs across top bar (`a.py` / `b.py`). |
-| **`<leader>cd`** (or `gl`) | **Floating Diagnostic** | Open wrapped floating popup showing full, unwrapped error message under cursor. |
 | **`<leader>xx`** | **Trouble Panel (Buffer)** | Open bottom diagnostic panel for current buffer. |
 | **`<leader>xX`** | **Trouble Panel (Workspace)** | Open bottom diagnostic panel for full project workspace. |
 | **`[d` / `]d`** | **Prev / Next Error** | Jump directly between diagnostic errors and warnings. |
@@ -73,6 +73,12 @@ nvim
 ---
 
 ## ✨ Features & Customizations
+
+### 🛠️ Formatting & Editing
+* **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
+* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
+* **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
+* **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
 
 ### 🦀 Rust Toolchain & rust-analyzer
 * **LSP**: Integrated with `rust-analyzer` via `lazyvim.plugins.extras.lang.rust` and `lang.toml`.
@@ -86,11 +92,6 @@ nvim
 * **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
 * **Type Checking**: Set to `standard` mode in `lua/plugins/python.lua`.
 * **Django ORM Support**: Overrides `reportAttributeAccessIssue` to prevent false-positive warnings on dynamic Django ORM attributes (e.g. `group.filters.all()`).
-
-### 🛠️ Formatting & Editing
-* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
-* **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
-* **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
 
 ### 🎨 Theme & Background Transparency
 * **Default Theme**: [Catppuccin Mocha](https://github.com/catppuccin/nvim) configured in `lua/plugins/colorscheme.lua`.
