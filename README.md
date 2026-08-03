@@ -55,6 +55,7 @@ nvim
 
 | Shortcut | Action | Description |
 |---|---|---|
+| **`<C-=>`** / **`<C-->`** | **Zoom In / Out Font** | Increase or decrease font size dynamically (GUI / Neovide). |
 | **`<leader>cd`** (or `gl`) | **Floating Diagnostic** | Open wrapped floating popup showing full, unwrapped error message under cursor (VS Code / Zed style). |
 | **`<leader>cf`** | **Format File / Selection** | Manually format current file or visual selection using `conform.nvim` (`rustfmt`, `ruff_format`, `stylua`, etc.). |
 | **`<c-/>`** (or **`Ctrl + /`**) | **Toggle Terminal** | Toggle floating terminal popup inside Neovim. |
@@ -103,6 +104,8 @@ nvim
 * Integrated with `unnamedplus` via `wl-clipboard` (Wayland) and `xclip` (X11) so yanking (`y`, `yy`) automatically syncs with the system clipboard.
 
 ### 📐 Line Height & Typography
+* Default editor font size configured to 18pt via `vim.opt.guifont = "JetBrainsMono Nerd Font:h18"`.
+* Dynamic font zoom shortcuts: `<C-=>` (Zoom In) and `<C-->` (Zoom Out).
 * Line spacing configured via `vim.opt.linespace = 6` in `lua/config/options.lua`.
 * Absolute line numbers permanently enabled (`vim.opt.relativenumber = false`).
 
