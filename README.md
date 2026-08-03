@@ -1,6 +1,6 @@
 # ⚡ Custom LazyVim Configuration
 
-A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Catppuccin Mocha**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, **Rust Toolchain (`rust-analyzer`)**, **LazyGit integration**, and diagnostic shortcuts.
+A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Ayu Dark (`Shatur/neovim-ayu`)**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, **Rust Toolchain (`rust-analyzer`)**, **LazyGit integration**, and diagnostic shortcuts.
 
 ---
 
@@ -74,6 +74,12 @@ nvim
 
 ## ✨ Features & Customizations
 
+### 🎨 Theme & Background Transparency
+* **Default Theme**: [Shatur/neovim-ayu](https://github.com/Shatur/neovim-ayu) (`ayu-dark` / `ayu-mirage`) configured in `lua/plugins/colorscheme.lua`.
+* **Transparency**: Enforced using [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim) for background transparency across buffers, floats, statuslines, and sidebars.
+* **Toggle Transparency**: Run `:TransparentToggle` inside Neovim.
+* **Terminal Opacity Note**: Set your terminal emulator (COSMIC Terminal, Kitty, Alacritty, WezTerm) background opacity to **`80% - 85%`** to enable desktop/window blur through Neovim.
+
 ### 🛠️ Formatting & Editing
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
 * **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`rustfmt` for Rust, `ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
@@ -92,12 +98,6 @@ nvim
 * **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
 * **Type Checking**: Set to `standard` mode in `lua/plugins/python.lua`.
 * **Django ORM Support**: Overrides `reportAttributeAccessIssue` to prevent false-positive warnings on dynamic Django ORM attributes (e.g. `group.filters.all()`).
-
-### 🎨 Theme & Background Transparency
-* **Default Theme**: [Catppuccin Mocha](https://github.com/catppuccin/nvim) configured in `lua/plugins/colorscheme.lua`.
-* **Transparency**: Enforced using [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim) for background transparency across buffers, floats, statuslines, and sidebars.
-* **Toggle Transparency**: Run `:TransparentToggle` inside Neovim.
-* **Terminal Opacity Note**: Set your terminal emulator (COSMIC Terminal, Kitty, Alacritty, WezTerm) background opacity to **`80% - 85%`** to enable desktop/window blur through Neovim.
 
 ### 📋 System Clipboard
 * Integrated with `unnamedplus` via `wl-clipboard` (Wayland) and `xclip` (X11) so yanking (`y`, `yy`) automatically syncs with the system clipboard.
@@ -125,5 +125,6 @@ nvim
     └── plugins/
         ├── colorscheme.lua
         ├── formatting.lua
+        ├── lsp.lua
         └── python.lua
 ```
