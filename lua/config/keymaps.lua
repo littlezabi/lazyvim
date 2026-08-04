@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>q", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer / Close File" })
 
--- Dynamic Font Size Adjustment Shortcuts (Zoom In / Zoom Out for GUI frontends)
+-- Dynamic Font Size Adjustment Shortcuts (<leader>zi / <leader>zo for GUI frontends)
 local function adjust_font_size(amount)
   local font = vim.opt.guifont:get()[1]
   if font and font ~= "" then
@@ -24,6 +24,6 @@ local function adjust_font_size(amount)
   end
 end
 
-vim.keymap.set("n", "<C-=>", function() adjust_font_size(1) end, { desc = "Increase Font Size" })
-vim.keymap.set("n", "<C-kPlus>", function() adjust_font_size(1) end, { desc = "Increase Font Size" })
-vim.keymap.set("n", "<C-->", function() adjust_font_size(-1) end, { desc = "Decrease Font Size" })
+vim.keymap.set("n", "<leader>zi", function() adjust_font_size(1) end, { desc = "Zoom In (Increase Font Size)" })
+vim.keymap.set("n", "<leader>zo", function() adjust_font_size(-1) end, { desc = "Zoom Out (Decrease Font Size)" })
+vim.keymap.set("n", "<leader>zr", function() vim.opt.guifont = "JetBrainsMono Nerd Font:h18" vim.notify("Font size reset to 18", vim.log.levels.INFO) end, { desc = "Reset Font Size" })

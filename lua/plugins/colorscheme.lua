@@ -42,6 +42,12 @@ return {
         SnacksNormal = { bg = "NONE", ctermbg = "NONE" },
         SnacksNormalNC = { bg = "NONE", ctermbg = "NONE" },
 
+        -- Dim UI elements (line numbers, statusline, sidebars) to emphasize main code
+        LineNr = { fg = "#454b68" },
+        CursorLineNr = { fg = "#737aa2", bold = true },
+        StatusLine = { fg = "#606687", bg = "NONE" },
+        StatusLineNC = { fg = "#3d425c", bg = "NONE" },
+
         -- Clear bright Spell checking underlines
         SpellBad = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
         SpellCap = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
