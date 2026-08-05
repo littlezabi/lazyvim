@@ -54,12 +54,12 @@ return {
         SpellLocal = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
         SpellRare = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
 
-        -- Ultra-dimmed, low-contrast dark underlines for LSP errors & warnings
-        DiagnosticUnderlineError = { fg = "#582a2d", sp = "#582a2d", underline = true, undercurl = false },
-        DiagnosticUnderlineWarn = { fg = "#4a3e23", sp = "#4a3e23", underline = true, undercurl = false },
-        DiagnosticUnderlineInfo = { fg = "#28394a", sp = "#28394a", underline = true, undercurl = false },
-        DiagnosticUnderlineHint = { fg = "#313244", sp = "#313244", underline = true, undercurl = false },
-        DiagnosticUnnecessary = { fg = "#45475a", underline = false, undercurl = false },
+        -- Keep code text 100% bright & readable (fg = NONE), only color the subtle underline (sp)
+        DiagnosticUnderlineError = { fg = "NONE", sp = "#b25555", underline = true, undercurl = false },
+        DiagnosticUnderlineWarn = { fg = "NONE", sp = "#c08a3e", underline = true, undercurl = false },
+        DiagnosticUnderlineInfo = { fg = "NONE", sp = "#4c6b8a", underline = true, undercurl = false },
+        DiagnosticUnderlineHint = { fg = "NONE", sp = "#565f89", underline = true, undercurl = false },
+        DiagnosticUnnecessary = { fg = "NONE", sp = "#c08a3e", underline = true, undercurl = false },
       },
     },
   },
