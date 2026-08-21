@@ -29,6 +29,9 @@ sudo apt update && sudo apt install -y \
 
 # Install rust-analyzer component for Rust LSP
 rustup component add rust-analyzer
+
+# Install pre-commit tool for git hooks
+pip install --user pre-commit
 ```
 
 ### 2. Clone Configuration
@@ -56,12 +59,12 @@ nvim
 | Shortcut | Action | Description |
 |---|---|---|
 | **`<leader>cd`** (or `gl`) | **Floating Diagnostic** | Open wrapped floating popup showing full, unwrapped error message under cursor (VS Code / Zed style). |
-| **`<leader>cf`** | **Format File / Selection** | Manually format current file or visual selection using `conform.nvim` (`rustfmt`, `ruff_format`, `stylua`, etc.). |
+| **`<leader>cf`** | **Format File / Selection** | Manually format current file or visual selection using `conform.nvim` (`ruff_fix`, `ruff_organize_imports`, `ruff_format`, `rustfmt`, `stylua`, etc.). |
 | **`<c-/>`** (or **`Ctrl + /`**) | **Toggle Terminal** | Toggle floating terminal popup inside Neovim. |
 | **`<leader>ft`** | **Floating Terminal** | Open floating terminal window. |
 | **`<leader>fT`** | **Split Terminal** | Open terminal in a bottom split window. |
 | **`<Esc><Esc>`** | **Terminal Normal Mode** | Exit terminal insert mode to copy text or navigate buffers. |
-| **`<leader>gg`** | **LazyGit** | Open LazyGit UI inside Neovim. |
+| **`<leader>gg`** | **LazyGit** | Open LazyGit UI inside Neovim (runs pre-commit git hooks automatically). |
 | **`<leader>q`** | **Close Buffer / File** | Close current file (`b.py`) without quitting Neovim. |
 | **`<leader>bd`** | **Delete Buffer** | Close current buffer (LazyVim default). |
 | **`H` / `L`** | **Prev / Next Buffer** | Switch between open buffer tabs across top bar (`a.py` / `b.py`). |
@@ -82,15 +85,16 @@ nvim
 
 ### 🛠️ Formatting & Editing
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
-* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`rustfmt` for Rust, `ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
+* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Manual formatting triggers `ruff_fix`, `ruff_organize_imports`, and `ruff_format` matching VS Code code action rules (`source.fixAll.ruff` & `source.organizeImports.ruff`).
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
 * **Spell Checking**: Disabled on code buffers to prevent false red underlines.
 
-### 🐍 Python & Pyright Config
+### 🐍 Python, Pre-Commit & Pyright Config
+* **Pre-commit Git Hook Integration**: Installed `pre-commit` binary system-wide and initialized `.git/hooks/pre-commit` so committing in Neovim or LazyGit (`<leader>gg`) automatically runs `.pre-commit-config.yaml` (`ruff --fix`).
 * **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
 * **Type Checking**: Set to `standard` mode with `openFilesOnly` diagnostic mode in `lua/plugins/python.lua`.
-* **No Pyright Toast Notification Spam**: Pyright LSP progress notifications (10-12 stacked toast messages) are suppressed via `noice.nvim`.
-* **Compact Hover Docstrings**: Hover popups for classes/functions are strictly capped at `max_height = 15` and `max_width = 80` so large docstrings never take over the entire editor screen.
+* **No Pyright Toast Notification Spam**: Pyright LSP progress notifications are suppressed via `noice.nvim`.
+* **Compact Hover Docstrings**: Hover popups for classes/functions are strictly capped at `max_height = 15` and `max_width = 80`.
 
 ### 🦀 Rust Toolchain & rust-analyzer
 * **LSP & Formatting**: Integrated with `rust-analyzer` and `rustfmt` via `lazyvim.plugins.extras.lang.rust` and `lang.toml`.

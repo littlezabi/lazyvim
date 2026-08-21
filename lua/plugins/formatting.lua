@@ -11,13 +11,13 @@ return {
     enabled = false,
   },
 
-  -- Configure Conform.nvim for manual formatting (<leader>cf)
+  -- Configure Conform.nvim for manual formatting (<leader>cf) matching VS Code ruff & pre-commit setup
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
       opts.formatters_by_ft = opts.formatters_by_ft or {}
       opts.formatters_by_ft.rust = { "rustfmt" }
-      opts.formatters_by_ft.python = { "ruff_format" }
+      opts.formatters_by_ft.python = { "ruff_fix", "ruff_organize_imports", "ruff_format" }
       opts.formatters_by_ft.lua = { "stylua" }
       opts.formatters_by_ft.sh = { "shfmt" }
 
