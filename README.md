@@ -84,7 +84,13 @@ nvim
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
 * **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Formatting is triggered on-demand using `<leader>cf` via `conform.nvim` (`rustfmt` for Rust, `ruff_format` for Python, `stylua` for Lua, `shfmt` for Shell).
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
-* **Spell Checking**: Enabled (`vim.opt.spell = true`, `spelllang = en`).
+* **Spell Checking**: Disabled on code buffers to prevent false red underlines.
+
+### 🐍 Python & Pyright Config
+* **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
+* **Type Checking**: Set to `standard` mode with `openFilesOnly` diagnostic mode in `lua/plugins/python.lua`.
+* **No Pyright Toast Notification Spam**: Pyright LSP progress notifications (10-12 stacked toast messages) are suppressed via `noice.nvim`.
+* **Compact Hover Docstrings**: Hover popups for classes/functions are strictly capped at `max_height = 15` and `max_width = 80` so large docstrings never take over the entire editor screen.
 
 ### 🦀 Rust Toolchain & rust-analyzer
 * **LSP & Formatting**: Integrated with `rust-analyzer` and `rustfmt` via `lazyvim.plugins.extras.lang.rust` and `lang.toml`.
@@ -93,11 +99,6 @@ nvim
   ```bash
   rustup component add rust-analyzer
   ```
-
-### 🐍 Python & Pyright Config
-* **Auto-Parent VirtualEnv Search**: Automatically detects `.venv`, `venv`, and `env` in current directory and parent directories (`..`, `../..`).
-* **Type Checking**: Set to `standard` mode in `lua/plugins/python.lua`.
-* **Django ORM Support**: Overrides `reportAttributeAccessIssue` to prevent false-positive warnings on dynamic Django ORM attributes (e.g. `group.filters.all()`).
 
 ### 📋 System Clipboard
 * Integrated with `unnamedplus` via `wl-clipboard` (Wayland) and `xclip` (X11) so yanking (`y`, `yy`) automatically syncs with the system clipboard.
