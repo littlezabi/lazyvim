@@ -11,7 +11,7 @@ return {
     enabled = false,
   },
 
-  -- Configure Conform.nvim for manual formatting (<leader>cf) matching VS Code ruff & pre-commit setup
+  -- Configure Conform.nvim for autoformat on save using ruff settings
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
@@ -21,8 +21,11 @@ return {
       opts.formatters_by_ft.lua = { "stylua" }
       opts.formatters_by_ft.sh = { "shfmt" }
 
-      -- Disable autoformat on save completely
-      opts.format_on_save = false
+      -- Enable autoformat on save
+      opts.format_on_save = {
+        timeout_ms = 3000,
+        lsp_fallback = true,
+      }
 
       return opts
     end,

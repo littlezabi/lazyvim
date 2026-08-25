@@ -85,7 +85,7 @@ nvim
 
 ### 🛠️ Formatting & Editing
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
-* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save is **disabled**. Manual formatting triggers `ruff_fix`, `ruff_organize_imports`, and `ruff_format` matching VS Code code action rules (`source.fixAll.ruff` & `source.organizeImports.ruff`).
+* **Autoformat On Save Enabled**: Autoformat on save (`:w`) is enabled. Automatically runs `ruff_fix` (fixes unused imports `F401`), `ruff_organize_imports` (sorts imports `I`), and `ruff_format` (formats code layout to 88 chars). Manual formatting is also available at any time using `<leader>cf`.
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
 * **Spell Checking**: Disabled on code buffers to prevent false red underlines.
 
