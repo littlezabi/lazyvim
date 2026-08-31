@@ -77,6 +77,9 @@ nvim
 
 ## ✨ Features & Customizations
 
+### 📁 Workspace Root Control
+* **CWD Root Locking**: Configured `vim.g.root_spec = { "cwd" }` so LazyVim strictly keeps the folder you open (e.g. `~/rusty/export_sheet/`) as the workspace root instead of automatically jumping up to parent `.git` directories (`~/rusty/`).
+
 ### 🎨 Theme & Background Transparency
 * **Default Theme**: [Shatur/neovim-ayu](https://github.com/Shatur/neovim-ayu) (`ayu-dark` / `ayu-mirage`) configured in `lua/plugins/colorscheme.lua`.
 * **Transparency**: Enforced using [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim) for background transparency across buffers, floats, statuslines, and sidebars.
@@ -85,7 +88,7 @@ nvim
 
 ### 🛠️ Formatting & Editing
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
-* **Autoformat On Save Enabled**: Autoformat on save (`:w`) is enabled. Automatically runs `ruff_fix` (fixes unused imports `F401`), `ruff_organize_imports` (sorts imports `I`), and `ruff_format` (formats code layout to 88 chars). Manual formatting is also available at any time using `<leader>cf`.
+* **Modified Lines Autoformat On Save**: On save (`:w`), `conform.nvim` uses `gitsigns` to format **only the lines you modified**, leaving untouched lines clean. Manual full-file formatting is available anytime using `<leader>cf`.
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
 * **Spell Checking**: Disabled on code buffers to prevent false red underlines.
 

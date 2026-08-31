@@ -2,6 +2,10 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- Force LazyVim to always use the current working directory (cwd) as workspace root
+-- Fixes root detection jumping to parent .git folders (e.g. ~/rusty instead of ~/rusty/export_sheet)
+vim.g.root_spec = { "cwd" }
+
 -- Enable global autoformat on save
 vim.g.autoformat = true
 
@@ -25,8 +29,8 @@ vim.opt.shortmess:append("A")
 -- Diagnostic settings (VS Code / Zed style: underline only, no long inline text)
 vim.diagnostic.config({
   virtual_text = false, -- Disables inline long trailing error text
-  underline = true,    -- Keeps error/warning underlines on code
-  signs = true,        -- Keeps gutter signs
+  underline = true, -- Keeps error/warning underlines on code
+  signs = true, -- Keeps gutter signs
   float = {
     focusable = true,
     style = "minimal",
