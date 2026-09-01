@@ -6,8 +6,8 @@
 -- Fixes root detection jumping to parent .git folders (e.g. ~/rusty instead of ~/rusty/export_sheet)
 vim.g.root_spec = { "cwd" }
 
--- Enable global autoformat on save
-vim.g.autoformat = true
+-- Disable global autoformat on save (manual formatting only via <leader>cf)
+vim.g.autoformat = false
 
 -- Disable spell checking on code buffers (prevents bright red SpellBad underlines on variable names)
 vim.opt.spell = false

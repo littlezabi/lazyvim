@@ -88,7 +88,7 @@ nvim
 
 ### 🛠️ Formatting & Editing
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
-* **Modified Lines Autoformat On Save**: On save (`:w`), `conform.nvim` uses `gitsigns` to format **only the lines you modified**, leaving untouched lines clean. Manual full-file formatting is available anytime using `<leader>cf`.
+* **Manual Formatting Only (`<leader>cf`)**: Autoformat on save (`:w`) is **disabled**. Formatting is triggered manually on demand using `<leader>cf` via `conform.nvim` (`ruff_fix`, `ruff_organize_imports`, `ruff_format` for Python, `rustfmt` for Rust, `stylua` for Lua).
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
 * **Spell Checking**: Disabled on code buffers to prevent false red underlines.
 
