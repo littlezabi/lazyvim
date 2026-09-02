@@ -77,6 +77,11 @@ nvim
 
 ## ✨ Features & Customizations
 
+### ⚡ Fast Zed-Style Motion & Animations
+* **Snappy Smooth Physics Scrolling (`neoscroll.nvim`)**: Configured quadratic physics easing for `Ctrl+d`, `Ctrl+u`, `Ctrl+f`, `Ctrl+b` with a fast 40% duration multiplier for instant, silky-smooth scrolling.
+* **Fluid Cursor Motion Animation (`smear-cursor.nvim`)**: Adds a smooth fluid trail to the cursor as it glides between lines and buffers without any input lag.
+* **Snappy Responsiveness**: Set `updatetime = 200` and `timeoutlen = 300` for instant keycombo response and quick visual updates.
+
 ### 📁 Workspace Root Control
 * **CWD Root Locking**: Configured `vim.g.root_spec = { "cwd" }` so LazyVim strictly keeps the folder you open (e.g. `~/rusty/export_sheet/`) as the workspace root instead of automatically jumping up to parent `.git` directories (`~/rusty/`).
 
@@ -134,5 +139,6 @@ nvim
         ├── colorscheme.lua
         ├── formatting.lua
         ├── lsp.lua
+        ├── motion.lua
         └── python.lua
 ```

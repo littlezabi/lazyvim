@@ -9,6 +9,12 @@ vim.g.root_spec = { "cwd" }
 -- Disable global autoformat on save (manual formatting only via <leader>cf)
 vim.g.autoformat = false
 
+-- Fast, smooth cursor motion settings (Zed style responsiveness)
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+vim.opt.updatetime = 200
+vim.opt.timeoutlen = 300
+
 -- Disable spell checking on code buffers (prevents bright red SpellBad underlines on variable names)
 vim.opt.spell = false
 
