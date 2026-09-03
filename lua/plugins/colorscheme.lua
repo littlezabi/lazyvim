@@ -23,44 +23,49 @@ return {
     },
   },
 
+  -- Solarized Osaka Theme Configuration (craftzdog/solarized-osaka.nvim)
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      terminal_colors = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+      on_highlights = function(hl, c)
+        -- Dim UI elements to emphasize main code
+        hl.LineNr = { fg = "#454b68" }
+        hl.CursorLineNr = { fg = "#737aa2", bold = true }
+        hl.StatusLine = { fg = "#606687", bg = "NONE" }
+        hl.StatusLineNC = { fg = "#3d425c", bg = "NONE" }
+
+        -- Clear bright Spell checking underlines
+        hl.SpellBad = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
+        hl.SpellCap = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
+        hl.SpellLocal = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
+        hl.SpellRare = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
+
+        -- Keep code text 100% bright & readable (fg = NONE), only color the subtle underline (sp)
+        hl.DiagnosticUnderlineError = { fg = "NONE", sp = "#b25555", underline = true, undercurl = false }
+        hl.DiagnosticUnderlineWarn = { fg = "NONE", sp = "#c08a3e", underline = true, undercurl = false }
+        hl.DiagnosticUnderlineInfo = { fg = "NONE", sp = "#4c6b8a", underline = true, undercurl = false }
+        hl.DiagnosticUnderlineHint = { fg = "NONE", sp = "#565f89", underline = true, undercurl = false }
+        hl.DiagnosticUnnecessary = { fg = "NONE", sp = "#c08a3e", underline = true, undercurl = false }
+      end,
+    },
+  },
+
   -- Ayu Theme Configuration (Shatur/neovim-ayu)
   {
     "Shatur/neovim-ayu",
     name = "ayu",
     priority = 1000,
     opts = {
-      mirage = false, -- set true for ayu-mirage, false for ayu-dark
+      mirage = false,
       terminal = true,
-      overrides = {
-        Normal = { bg = "NONE", ctermbg = "NONE" },
-        NormalNC = { bg = "NONE", ctermbg = "NONE" },
-        NormalFloat = { bg = "NONE", ctermbg = "NONE" },
-        FloatBorder = { bg = "NONE", ctermbg = "NONE" },
-        FloatTitle = { bg = "NONE", ctermbg = "NONE" },
-        NeoTreeNormal = { bg = "NONE", ctermbg = "NONE" },
-        NeoTreeNormalNC = { bg = "NONE", ctermbg = "NONE" },
-        SnacksNormal = { bg = "NONE", ctermbg = "NONE" },
-        SnacksNormalNC = { bg = "NONE", ctermbg = "NONE" },
-
-        -- Dim UI elements (line numbers, statusline, sidebars) to emphasize main code
-        LineNr = { fg = "#454b68" },
-        CursorLineNr = { fg = "#737aa2", bold = true },
-        StatusLine = { fg = "#606687", bg = "NONE" },
-        StatusLineNC = { fg = "#3d425c", bg = "NONE" },
-
-        -- Clear bright Spell checking underlines
-        SpellBad = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
-        SpellCap = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
-        SpellLocal = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
-        SpellRare = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false },
-
-        -- Keep code text 100% bright & readable (fg = NONE), only color the subtle underline (sp)
-        DiagnosticUnderlineError = { fg = "NONE", sp = "#b25555", underline = true, undercurl = false },
-        DiagnosticUnderlineWarn = { fg = "NONE", sp = "#c08a3e", underline = true, undercurl = false },
-        DiagnosticUnderlineInfo = { fg = "NONE", sp = "#4c6b8a", underline = true, undercurl = false },
-        DiagnosticUnderlineHint = { fg = "NONE", sp = "#565f89", underline = true, undercurl = false },
-        DiagnosticUnnecessary = { fg = "NONE", sp = "#c08a3e", underline = true, undercurl = false },
-      },
     },
   },
 
@@ -75,11 +80,11 @@ return {
     },
   },
 
-  -- Set Ayu Dark as default LazyVim colorscheme
+  -- Set Solarized Osaka as default LazyVim colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "ayu-dark", -- Options: ayu-dark, ayu-mirage, ayu-light, catppuccin
+      colorscheme = "solarized-osaka", -- Options: solarized-osaka, ayu-dark, ayu-mirage, catppuccin
     },
   },
 }

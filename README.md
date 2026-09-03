@@ -1,6 +1,6 @@
 # ⚡ Custom LazyVim Configuration
 
-A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Ayu Dark (`Shatur/neovim-ayu`)**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, **Rust Toolchain (`rust-analyzer`)**, **LazyGit integration**, and diagnostic shortcuts.
+A customized, high-performance [LazyVim](https://github.com/LazyVim/LazyVim) setup with **Solarized Osaka (`craftzdog/solarized-osaka.nvim`)**, **background transparency**, **system clipboard integration**, **Pyright Python tooling**, **Rust Toolchain (`rust-analyzer`)**, **LazyGit integration**, and diagnostic shortcuts.
 
 ---
 
@@ -77,6 +77,12 @@ nvim
 
 ## ✨ Features & Customizations
 
+### 🎨 Theme & Background Transparency
+* **Default Theme**: [craftzdog/solarized-osaka.nvim](https://github.com/craftzdog/solarized-osaka.nvim) configured in `lua/plugins/colorscheme.lua`.
+* **Transparency**: Enforced using [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim) for background transparency across buffers, floats, statuslines, and sidebars.
+* **Toggle Transparency**: Run `:TransparentToggle` inside Neovim.
+* **Terminal Opacity Note**: Set your terminal emulator (COSMIC Terminal, Kitty, Alacritty, WezTerm) background opacity to **`80% - 85%`** to enable desktop/window blur through Neovim.
+
 ### ⚡ Fast Zed-Style Motion & Animations
 * **Snappy Smooth Physics Scrolling (`neoscroll.nvim`)**: Configured quadratic physics easing for `Ctrl+d`, `Ctrl+u`, `Ctrl+f`, `Ctrl+b` with a fast 40% duration multiplier for instant, silky-smooth scrolling.
 * **Fluid Cursor Motion Animation (`smear-cursor.nvim`)**: Adds a smooth fluid trail to the cursor as it glides between lines and buffers without any input lag.
@@ -84,12 +90,6 @@ nvim
 
 ### 📁 Workspace Root Control
 * **CWD Root Locking**: Configured `vim.g.root_spec = { "cwd" }` so LazyVim strictly keeps the folder you open (e.g. `~/rusty/export_sheet/`) as the workspace root instead of automatically jumping up to parent `.git` directories (`~/rusty/`).
-
-### 🎨 Theme & Background Transparency
-* **Default Theme**: [Shatur/neovim-ayu](https://github.com/Shatur/neovim-ayu) (`ayu-dark` / `ayu-mirage`) configured in `lua/plugins/colorscheme.lua`.
-* **Transparency**: Enforced using [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim) for background transparency across buffers, floats, statuslines, and sidebars.
-* **Toggle Transparency**: Run `:TransparentToggle` inside Neovim.
-* **Terminal Opacity Note**: Set your terminal emulator (COSMIC Terminal, Kitty, Alacritty, WezTerm) background opacity to **`80% - 85%`** to enable desktop/window blur through Neovim.
 
 ### 🛠️ Formatting & Editing
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
