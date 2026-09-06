@@ -77,7 +77,8 @@ nvim
 
 ## ✨ Features & Customizations
 
-### 🎨 Theme & Background Transparency
+### 🎨 Theme, Custom Startup Logo & Transparency
+* **Custom Startup Logo**: Custom ASCII header banner (`Hi ZABI`) configured in `lua/plugins/ui.lua` via `folke/snacks.nvim` dashboard preset options.
 * **Default Theme**: [craftzdog/solarized-osaka.nvim](https://github.com/craftzdog/solarized-osaka.nvim) configured in `lua/plugins/colorscheme.lua`.
 * **Transparency**: Enforced using [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim) for background transparency across buffers, floats, statuslines, and sidebars.
 * **Toggle Transparency**: Run `:TransparentToggle` inside Neovim.
@@ -140,5 +141,6 @@ nvim
         ├── formatting.lua
         ├── lsp.lua
         ├── motion.lua
-        └── python.lua
+        ├── python.lua
+        └── ui.lua
 ```
