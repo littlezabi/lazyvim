@@ -32,10 +32,25 @@ return {
       transparent = true,
       terminal_colors = true,
       styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = { italic = true },
+        variables = {},
         sidebars = "transparent",
         floats = "transparent",
       },
       on_highlights = function(hl, c)
+        -- Explicitly enforce italics for comments & docstrings to trigger Victor Mono cursive handwriting font
+        hl.Comment = { fg = "#565f89", italic = true }
+        hl["@comment"] = { fg = "#565f89", italic = true }
+        hl["@comment.documentation"] = { fg = "#565f89", italic = true }
+        hl["@comment.line"] = { fg = "#565f89", italic = true }
+        hl["@comment.block"] = { fg = "#565f89", italic = true }
+        hl["@comment.error"] = { fg = "#f7768e", italic = true }
+        hl["@comment.warning"] = { fg = "#e0af68", italic = true }
+        hl["@comment.todo"] = { fg = "#7aa2f7", italic = true, bold = true }
+        hl["@comment.note"] = { fg = "#1abc9c", italic = true, bold = true }
+
         -- Dim UI elements to emphasize main code
         hl.LineNr = { fg = "#454b68" }
         hl.CursorLineNr = { fg = "#737aa2", bold = true }
