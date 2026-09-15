@@ -15,10 +15,11 @@ vim.opt.sidescrolloff = 8
 vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300
 
--- Enable spell checking with camelCase code awareness
+-- Enable spell checking with camelCase code awareness and custom developer dictionary
 vim.opt.spell = true
 vim.opt.spelllang = { "en" }
 vim.opt.spelloptions:append("camel")
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
 
 -- Disable relative line numbers, enable absolute line numbers
 vim.opt.relativenumber = false
