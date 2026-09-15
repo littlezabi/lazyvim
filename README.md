@@ -96,7 +96,7 @@ nvim
 * **VS Code / Zed Style Diagnostics**: Long trailing inline red error text (`virtual_text`) is **disabled**. Code errors now show clean red/yellow squiggly underlines. Press **`<leader>cd`** or **`gl`** to open the full error popup window under your cursor.
 * **Manual Formatting Only (`<leader>cf`)**: Autoformat on save (`:w`) is **disabled**. Formatting is triggered manually on demand using `<leader>cf` via `conform.nvim` (`ruff_fix`, `ruff_organize_imports`, `ruff_format` for Python, `rustfmt` for Rust, `stylua` for Lua).
 * **Indent Guides Disabled**: Disabled `snacks.indent` and `mini.indentscope` for a clean code view.
-* **Spell Checking**: Enabled with `spelloptions=camel` (so `camelCase` variable names like `myVariable` are not flagged as typos). Press **`z=`** for spelling suggestions, **`zg`** to add a word to dictionary, **`[s` / `]s`** to jump between typos, or **`<leader>us`** to toggle spell checking on/off.
+* **Spell Checking**: Enabled on comments and docstrings without false warnings on Python keywords (`def`, `self`, `cls`, `models`). Press **`z=`** for spelling suggestions, **`zg`** to add custom words to your developer dictionary (`~/.config/nvim/spell/en.utf-8.add`), **`[s` / `]s`** to jump between typos, or **`<leader>us`** to toggle spell checking on/off.
 
 ### 🐍 Python, Pre-Commit & Pyright Config
 * **Pre-commit Git Hook Integration**: Installed `pre-commit` binary system-wide and initialized `.git/hooks/pre-commit` so committing in Neovim or LazyGit (`<leader>gg`) automatically runs `.pre-commit-config.yaml` (`ruff --fix`).
