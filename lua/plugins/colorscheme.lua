@@ -64,11 +64,11 @@ return {
         hl.StatusLine = { fg = "#606687", bg = "NONE" }
         hl.StatusLineNC = { fg = "#3d425c", bg = "NONE" }
 
-        -- Clear bright Spell checking underlines
-        hl.SpellBad = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
-        hl.SpellCap = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
-        hl.SpellLocal = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
-        hl.SpellRare = { fg = "NONE", bg = "NONE", sp = "NONE", underline = false, undercurl = false }
+        -- Clean, subtle undercurls for spell checking
+        hl.SpellBad = { fg = "NONE", bg = "NONE", sp = "#f7768e", undercurl = true }
+        hl.SpellCap = { fg = "NONE", bg = "NONE", sp = "#e0af68", undercurl = true }
+        hl.SpellLocal = { fg = "NONE", bg = "NONE", sp = "#7dcfff", undercurl = true }
+        hl.SpellRare = { fg = "NONE", bg = "NONE", sp = "#bb9af7", undercurl = true }
 
         -- Keep code text 100% bright & readable (fg = NONE), only color the subtle underline (sp)
         hl.DiagnosticUnderlineError = { fg = "NONE", sp = "#b25555", underline = true, undercurl = false }

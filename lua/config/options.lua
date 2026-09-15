@@ -15,8 +15,10 @@ vim.opt.sidescrolloff = 8
 vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300
 
--- Disable spell checking on code buffers (prevents bright red SpellBad underlines on variable names)
-vim.opt.spell = false
+-- Enable spell checking with camelCase code awareness
+vim.opt.spell = true
+vim.opt.spelllang = { "en" }
+vim.opt.spelloptions:append("camel")
 
 -- Disable relative line numbers, enable absolute line numbers
 vim.opt.relativenumber = false
