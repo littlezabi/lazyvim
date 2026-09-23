@@ -79,14 +79,15 @@ nvim
 
 ### 🎨 Theme, Custom Startup Logo & Transparency
 * **Custom Startup Logo**: Custom ASCII header banner (`Hi ZABI`) configured in `lua/plugins/ui.lua` via `folke/snacks.nvim` dashboard preset options.
-* **Default Theme**: [craftzdog/solarized-osaka.nvim](https://github.com/craftzdog/solarized-osaka.nvim) configured in `lua/plugins/colorscheme.lua`.
+* **Theme Persistence**: Theme changes via `:colorscheme <theme>` or `<leader>uC` automatically persist across Neovim restarts (saved to `~/.local/state/nvim/last_theme.txt`).
+* **Default Theme**: [craftzdog/solarized-osaka.nvim](https://github.com/craftzdog/solarized-osaka.nvim) (also supports `catppuccin`, `ayu`, `tokyonight`).
 * **Transparency**: Enforced using [xiyaowong/transparent.nvim](https://github.com/xiyaowong/transparent.nvim) for background transparency across buffers, floats, statuslines, and sidebars.
 * **Toggle Transparency**: Run `:TransparentToggle` inside Neovim.
 * **Terminal Opacity Note**: Set your terminal emulator (COSMIC Terminal, Kitty, Alacritty, WezTerm) background opacity to **`80% - 85%`** to enable desktop/window blur through Neovim.
 
-### ⚡ Fast Zed-Style Motion & Animations
-* **Snappy Smooth Physics Scrolling (`neoscroll.nvim`)**: Configured quadratic physics easing for `Ctrl+d`, `Ctrl+u`, `Ctrl+f`, `Ctrl+b` with a fast 40% duration multiplier for instant, silky-smooth scrolling.
-* **Fluid Cursor Motion Animation (`smear-cursor.nvim`)**: Adds a smooth fluid trail to the cursor as it glides between lines and buffers without any input lag.
+### ⚡ Fast Glitch-Free Motion
+* **Snappy Physics Scrolling (`neoscroll.nvim`)**: Configured quadratic physics easing for `Ctrl+d`, `Ctrl+u`, `Ctrl+f`, `Ctrl+b` with a fast 40% duration multiplier for instant, silky-smooth scrolling.
+* **Zero Glitch / Maximum Speed**: Removed floating cursor trail overlays (`smear-cursor.nvim`) to eliminate screen flickering, ghosting, and input lag.
 * **Snappy Responsiveness**: Set `updatetime = 200` and `timeoutlen = 300` for instant keycombo response and quick visual updates.
 
 ### 📁 Workspace Root Control

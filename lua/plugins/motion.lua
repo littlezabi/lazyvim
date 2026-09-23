@@ -13,19 +13,4 @@ return {
       duration_multiplier = 0.4, -- 40% duration for ultra-fast, snappy Zed-style smooth scrolling
     },
   },
-
-  -- Animated Fluid Cursor Motion Trail (Zed Style Motion Animation)
-  {
-    "sphamba/smear-cursor.nvim",
-    event = "VeryLazy",
-    opts = {
-      smear_between_buffers = true,
-      smear_between_neighbor_lines = true,
-      scroll_buffer_space = true,
-      legacy_computing_symbols_support = false,
-      stiffness = 0.8, -- Fast, responsive cursor snap
-      trailing_stiffness = 0.5,
-      distance_stop_animating = 0.5,
-    },
-  },
 }
